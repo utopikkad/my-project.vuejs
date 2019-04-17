@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  //name: myButton,
+  name: 'myButton',
   props :{
     label : {
       type : String,
@@ -17,6 +17,14 @@ export default {
       setInterval(() => {
         this.$emit('click')
       }, 1700)
+    },
+    data () {
+      return {
+        msg : ""
+      }
+    },
+    methods: {
+  
     }
 }
 </script>
