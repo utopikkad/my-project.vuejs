@@ -1,7 +1,9 @@
 <template>
-  <!--<div class="mybutton">-->
+  <div class="myButton">
+  <input class="input" v-model="label" placeholder="Iam autoclick">
+  <p>Le message est : {{ label }}</p>
   <my-button label="label" @click="animate()"/>
-  <!--</div>-->
+  </div>
 </template>
 
 <script>
@@ -18,7 +20,7 @@ export default {
   },
   data () {
     return {
-      label: 'Iam Autoclick'
+      label: ' '
     }
   }
 }
@@ -28,6 +30,11 @@ export default {
 body {
   width: 100%;
   margin: auto;
+}
+.input {
+  margin-top: 80px;
+  margin-left: 80px;
+  border-radius: 25px;
 }
 
 </style>
