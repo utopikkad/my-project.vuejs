@@ -1,6 +1,11 @@
 <template>
-  <div class="button-native">
+<div>
+  <div class="button-native"  :v-on:click ="show = !show">
     <span>{{ label }}</span>
+  </div>
+  <transition name = "fade">
+    <p v-if = "show" class="clic" >Click</p>
+  </transition>
   </div>
 </template>
 
@@ -19,12 +24,16 @@ export default {
       }, 1700)
     },
     data () {
+      show: true
       return {
         msg : ""
       }
     },
     methods: {
-  
+      emitToParent() {
+        this.$emit('label', this.label)
+      
+      }
     }
 }
 </script>
@@ -35,6 +44,7 @@ export default {
     min-width: 193px;
     width: 50%;
     margin: auto;
+    margin-top: 100px;
     height: 50px;
     border-radius: 25px;
     background: #57b846;
@@ -47,6 +57,17 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 0 25px;
-    cursor: not-allowed;
   }
+  .fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
+.clic {
+  font-size: 5rem;
+  margin-left: 80%;
+  margin-top: 0px;
+
+}
 </style>
