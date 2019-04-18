@@ -1,8 +1,10 @@
 <template>
+<div>
   <div class="myButton">
   <input class="input" v-model="label" placeholder="Iam autoclick">
-  <p>Le message est : {{ label }}</p>
-  <my-button label="label" @click="animate()"/>
+  <!--<p class="paraph">enter input : {{ label }}</p>-->
+  <my-button :label="label"  @click="animate()"/>
+  </div>
   </div>
 </template>
 
@@ -15,15 +17,16 @@ export default {
   },
   methods: {
     animate() {
-
+      
     }
-  },
+    },
   data () {
     return {
       label: ' '
     }
   }
-}
+  }
+
 </script>
 
 <style>
@@ -32,9 +35,14 @@ body {
   margin: auto;
 }
 .input {
-  margin-top: 80px;
-  margin-left: 80px;
+  margin-top: 20px;
+  margin-left: 100px;
   border-radius: 25px;
+  position: absolute;
+}
+.paraph {
+   margin-top: 20px;
+   position: absolute;
 }
 
 </style>
